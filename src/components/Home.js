@@ -109,7 +109,7 @@ function Home() {
         console.log("Using token: " + token)
         axios({
             method: "get",
-            url: "http://transaction-reconciliator:8080/api/transactions/" + token + "/unmatchedTransactionsSummary"
+            url: "https://jcap.pro/api/transactions/" + token + "/unmatchedTransactionsSummary"
         })
             .then((response) => {
                 setFile1Unmatch(response.data.body.firstTransactionSet.unmatchedTransactions)
@@ -127,7 +127,7 @@ function Home() {
 
         axios({
             method: "post",
-            url: "http://transaction-reconciliator:8080/api/transactions/upload",
+            url: "https://jcap.pro/api/transactions/upload",
             data: formData
         })
             .then((response) => {
@@ -137,7 +137,7 @@ function Home() {
 
                 axios({
                     method: "get",
-                    url: "http://transaction-reconciliator:8080/api/transactions/" + response.data.body.reconciliationToken + "/matchSummary",
+                    url: "https://jcap.pro/api/transactions/" + response.data.body.reconciliationToken + "/matchSummary",
                 })
                     .then((response2) => {
                         if (response2) {
