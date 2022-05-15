@@ -89,7 +89,7 @@ function Home() {
     function getRowsData(tableData) {
         let keys = getKeys();
         if (tableData) {
-            if (tableData[0].transaction) {
+            if (tableData[0] != undefined && tableData[0].transaction) {
                 return (
                     tableData.map((row, index) => {
                         return <tr key={index}><RenderRow key={index} data={row} keys={keys} index={index} /></tr>
